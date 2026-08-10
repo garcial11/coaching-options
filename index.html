@@ -29,6 +29,11 @@
   .price { white-space: nowrap; }
   .note { margin-top: 20px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 8px; font-size: 0.9rem; color: var(--muted); }
   .note strong { color: var(--text); }
+  .stats { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
+  .stat { flex: 1 1 210px; border: 1px solid var(--line); border-radius: 8px; padding: 14px; background: var(--head-bg); }
+  .stat .lbl { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.03em; color: var(--muted); margin-bottom: 6px; }
+  .stat .num { font-size: 1.7rem; font-weight: 700; line-height: 1.1; color: var(--text); }
+  .stat .cav { font-size: 0.78rem; color: var(--muted); margin-top: 6px; }
 </style>
 </head>
 <body>
@@ -96,6 +101,24 @@
 
 </tbody>
 </table>
+</div>
+
+<div class="stats">
+  <div class="stat">
+    <div class="lbl">Human 1:1 instruction</div>
+    <div class="num">d ≈ 0.80–0.89</div>
+    <div class="cav">86 studies — but mostly read-aloud tasks, not real conversation</div>
+  </div>
+  <div class="stat">
+    <div class="lbl">AI apps, overall</div>
+    <div class="num">d ≈ 0.68</div>
+    <div class="cav">Medium effect; strongest on individual sounds (g ≈ 0.82)</div>
+  </div>
+  <div class="stat">
+    <div class="lbl">Apps: under 4 weeks, or advanced speakers</div>
+    <div class="num">g ≈ 0.07</div>
+    <div class="cav">Short use shows almost nothing; gains shrink for advanced learners</div>
+  </div>
 </div>
 
 <div class="note">
