@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Apps vs Human Coaching for the Advanced English Speaker — Storm Research Briefing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #1a56db;
+    --blue-dark: #113a94;
+    --blue-pale: #eef3fd;
+    --ink: #1a2233;
+    --ink-soft: #4b5568;
+    --line: #e3e7ee;
+    --paper: #ffffff;
+    --wash: #f7f8fa;
+    --green: #1a7f4e;
+    --green-pale: #e8f5ee;
+    --amber: #a16207;
+    --amber-pale: #fdf3e0;
+    --red: #b42318;
+    --red-pale: #fdecea;
+    --gray-tag: #5b6472;
+    --gray-pale: #eef0f3;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Montserrat', -apple-system, 'Segoe UI', sans-serif;
+    background: var(--wash);
+    color: var(--ink);
+    line-height: 1.6;
+    font-size: 16px;
+  }
+  .mono { font-family: 'Roboto Mono', 'SF Mono', Menlo, monospace; }
+  .page {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+  .sheet {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 56px 64px;
+  }
+  @media (max-width: 700px) { .sheet { padding: 32px 24px; } }
+
+  /* Header */
+  .kicker {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--blue);
+    font-weight: 500;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-size: 34px;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin-bottom: 14px;
+  }
+  .report-meta {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    margin-bottom: 8px;
+  }
+  .report-meta span + span::before { content: "  ·  "; color: var(--line); }
+  .panel-disclosure {
+    font-size: 13px;
+    color: var(--ink-soft);
+    border-left: 3px solid var(--line);
+    padding-left: 12px;
+    margin: 18px 0 0;
+  }
+
+  /* Verification banner */
+  .verification-banner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 26px;
+    align-items: baseline;
+    background: var(--blue-pale);
+    border: 1px solid #d3e0f8;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 30px 0 0;
+  }
+  .verification-banner .v-label {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--blue-dark);
+    font-weight: 500;
+  }
+  .verification-banner .v-stat {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 13.5px;
+    color: var(--ink);
+  }
+  .verification-banner .v-stat b { color: var(--blue-dark); }
+
+  /* Sections */
+  section { margin-top: 46px; }
+  h2 {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--blue);
+    border-bottom: 2px solid var(--blue);
+    display: inline-block;
+    padding-bottom: 6px;
+    margin-bottom: 18px;
+  }
+  section > p { color: var(--ink); margin-bottom: 12px; max-width: 70ch; }
+  .lede { font-size: 17.5px; font-weight: 600; line-height: 1.55; }
+
+  /* Findings */
+  .finding {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 20px 22px;
+    margin-bottom: 14px;
+    background: var(--paper);
+  }
+  .finding-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .rank {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--paper);
+    background: var(--blue);
+    border-radius: 6px;
+    padding: 2px 8px;
+    flex: none;
+  }
+  .finding-head h3 { font-size: 16.5px; font-weight: 700; flex: 1; line-height: 1.35; }
+  .confidence {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--blue-dark);
+    background: var(--blue-pale);
+    border-radius: 6px;
+    padding: 2px 9px;
+    white-space: nowrap;
+    flex: none;
+  }
+  .finding p { font-size: 14.5px; color: var(--ink-soft); margin-bottom: 10px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 11.5px;
+    border-radius: 999px;
+    padding: 3px 12px;
+    border: 1px solid;
+  }
+  .chip.support { color: var(--green); background: var(--green-pale); border-color: #bfe3cf; }
+  .chip.challenge { color: var(--red); background: var(--red-pale); border-color: #f3c6c1; }
+
+  /* Callouts */
+  .callout {
+    border-left: 4px solid var(--blue);
+    background: var(--blue-pale);
+    border-radius: 0 10px 10px 0;
+    padding: 20px 24px;
+  }
+  .callout h2 { border: none; padding-bottom: 0; margin-bottom: 8px; }
+  .callout p { max-width: none; }
+
+  .contested {
+    border: 1px dashed #d8b46a;
+    background: var(--amber-pale);
+    border-radius: 10px;
+    padding: 20px 24px;
+  }
+  .contested h2 { color: var(--amber); border-color: var(--amber); }
+  .contested ul { list-style: none; }
+  .contested li {
+    font-size: 14px;
+    color: var(--ink-soft);
+    padding: 8px 0;
+    border-bottom: 1px solid #f0e2c4;
+  }
+  .contested li:last-child { border-bottom: none; }
+  .contested li b { color: var(--ink); }
+
+  /* Actions */
+  .actions ol { list-style: none; counter-reset: act; }
+  .actions li {
+    counter-increment: act;
+    position: relative;
+    padding: 12px 0 12px 46px;
+    border-bottom: 1px solid var(--line);
+    font-size: 15px;
+  }
+  .actions li:last-child { border-bottom: none; }
+  .actions li::before {
+    content: counter(act, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 12px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--blue);
+  }
+  .actions li b { display: block; font-weight: 700; }
+
+  /* Claim safety guide */
+  .safety { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 700px) { .safety { grid-template-columns: 1fr; } }
+  .safety-col { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+  .safety-col header {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 11.5px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 9px 14px;
+  }
+  .safety-col.assert header { background: var(--green-pale); color: var(--green); }
+  .safety-col.caveat header { background: var(--amber-pale); color: var(--amber); }
+  .safety-col.avoid header { background: var(--red-pale); color: var(--red); }
+  .safety-col ul { list-style: none; padding: 6px 14px 12px; }
+  .safety-col li {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    padding: 7px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .safety-col li:last-child { border-bottom: none; }
+
+  /* Frontier question */
+  .frontier {
+    text-align: center;
+    padding: 34px 30px;
+    background: var(--ink);
+    border-radius: 12px;
+  }
+  .frontier .kicker { color: #8fb0f2; margin-bottom: 10px; }
+  .frontier p {
+    color: var(--paper);
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1.45;
+    max-width: 56ch;
+    margin: 0 auto;
+  }
+
+  /* References */
+  .refs ol { list-style: none; counter-reset: ref; }
+  .ref-item {
+    counter-increment: ref;
+    position: relative;
+    padding: 11px 0 11px 40px;
+    border-bottom: 1px solid var(--line);
+    font-size: 13.5px;
+    color: var(--ink-soft);
+  }
+  .ref-item:last-child { border-bottom: none; }
+  .ref-item::before {
+    content: "[" counter(ref) "]";
+    position: absolute;
+    left: 0;
+    top: 11px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 12.5px;
+    color: var(--blue);
+  }
+  .ref-item a { color: var(--blue); text-decoration: none; word-break: break-all; }
+  .ref-item a:hover { text-decoration: underline; }
+  .tag {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-radius: 5px;
+    padding: 2px 7px;
+    margin-left: 8px;
+    white-space: nowrap;
+  }
+  .tag.confirmed { color: var(--green); background: var(--green-pale); }
+  .tag.partial { color: var(--amber); background: var(--amber-pale); }
+  .tag.unverified { color: var(--gray-tag); background: var(--gray-pale); }
+  .tag.false { color: var(--red); background: var(--red-pale); }
+
+  /* Footer */
+  .method-footer {
+    margin-top: 52px;
+    padding-top: 22px;
+    border-top: 1px solid var(--line);
+    font-size: 12.5px;
+    color: var(--ink-soft);
+  }
+  .method-footer h3 {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gray-tag);
+    margin-bottom: 8px;
+  }
+  .method-footer p { max-width: none; margin-bottom: 6px; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="sheet">
+
+    <header>
+      <div class="kicker">Storm Research Briefing</div>
+      <h1>Apps vs Human Coaching for the Advanced English Speaker</h1>
+      <div class="report-meta">
+        <span>2026-08-10</span><span>Topic: do AI speaking apps work, does 1:1 coaching work, and which should an advanced speaker buy</span><span>Prepared for: a fluent bilingual finance executive buying for investor-call English</span>
+      </div>
+      <p class="panel-disclosure">
+        This briefing was produced by an author-built panel of five simulated expert lenses
+        (Practitioner, Academic, Skeptic, Economist, Historian), then adversarially reviewed and
+        citation-verified against primary sources. Agreement across lenses is a strong hypothesis,
+        not independent proof.
+      </p>
+    </header>
+
+    <div class="verification-banner">
+      <span class="v-label">Verification</span>
+      <span class="v-stat"><b>15/23</b> citations checked</span>
+      <span class="v-stat"><b>0</b> fabricated</span>
+      <span class="v-stat"><b>6</b> corrected</span>
+      <span class="v-stat"><b>3</b> demoted</span>
+    </div>
+
+    <section>
+      <h2>The 60-Second Summary</h2>
+      <p class="lede">Pronunciation training works on average: human instruction measures d ≈ 0.80&ndash;0.89 across 86 reports [1] and app-based ASR training g ≈ 0.69 [3]. But those averages are built from beginners and intermediates measured on scripted read-aloud tasks. For an advanced speaker the evidence base almost vanishes: in controlled between-group comparisons, advanced learners receiving human accent instruction measure d ≈ &minus;0.01 across 7 studies (uncontrolled pre-post designs show gains, and the authors call the proficiency pattern unclear) [1], the advanced app figure of g ≈ 0.48 rests on a single study [3], and app use of 1&ndash;4 weeks measures g ≈ 0.07, indistinguishable from nothing [3].</p>
+      <p>What survives scrutiny is a transfer asymmetry, not a winner. The only training ever shown to improve listener-judged spontaneous speech is global instruction: prosody, fluency, discourse, the delivery half [4], and gains from sound drilling concentrate in controlled tasks that investors never hear [5]. The one clean head-to-head trial (run on L2 Spanish learners) gave the app the short-term win on individual sounds and the human teacher the durable comprehensibility gain, and recommended using both in tandem [6]; a second, confounded trial leaned the other way [23]. Delivery coaching itself measures real but modest (&delta; ≈ 0.36 overall; RCT-only g ≈ 0.59 with detected publication bias) [7][8]. The purchase decision that follows: put human money on delivery rehearsed on real material, treat an app as months-long assigned homework or skip it, and measure your own outcome, because neither literature convincingly links training to a business result.</p>
+    </section>
+
+    <section>
+      <h2>Five Key Findings, Ranked by Reliability</h2>
+
+      <article class="finding">
+        <div class="finding-head">
+          <span class="rank">1</span>
+          <h3>Training works on average, but the averages are beginners on scripted tasks</h3>
+          <span class="confidence">8/10</span>
+        </div>
+        <p>Human pronunciation instruction: d ≈ 0.89 within-group, 0.80 between-group, across 86 reports [1]. App/ASR training: g ≈ 0.69 across 15 studies [3]. Both averages are dominated by lower-proficiency learners (instruction beginners d ≈ 0.97; app beginners g ≈ 1.33 from only 2 studies) and by outcome measures an investor never hears: 73% of the 75 reviewed studies used read-aloud tasks (56% exclusively), and among studies with human ratings, 75% assessed discrete features rather than global speech [2]. The headline numbers are real and the populations are not yours.</p>
+        <div class="chips">
+          <span class="chip support">Supported by: Academic, Practitioner, Skeptic (on the composition critique)</span>
+          <span class="chip challenge">Challenged by: Skeptic (publication bias inflates the headline)</span>
+        </div>
+      </article>
+
+      <article class="finding">
+        <div class="finding-head">
+          <span class="rank">2</span>
+          <h3>Only prosody/delivery training has ever transferred to spontaneous speech</h3>
+          <span class="confidence">8/10</span>
+        </div>
+        <p>In the field's controlled comparison, segmental drilling improved read-aloud sentences only; the global group (prosody, fluency, discourse) was the only one that improved comprehensibility and fluency in extemporaneous narratives [4]. A 77-study meta-analysis corroborates: instruction effects concentrate in controlled tasks, and efficacy for spontaneous speech remains unclear [5]. Every lens converged here, including the Historian's long-cycle observation that delivery practice (Toastmasters, 1924&ndash;present) is the only format that survived every technology wave [21].</p>
+        <div class="chips">
+          <span class="chip support">Supported by: Academic, Practitioner, Historian, Skeptic</span>
+          <span class="chip challenge">Challenged by: none</span>
+        </div>
+      </article>
+
+      <article class="finding">
+        <div class="finding-head">
+          <span class="rank">3</span>
+          <h3>At the advanced level, the accent-drilling evidence base nearly vanishes</h3>
+          <span class="confidence">5/10</span>
+        </div>
+        <p>In between-group (vs-control) comparisons, advanced learners measure d ≈ &minus;0.01 (k = 7, CI &minus;0.06 to 0.03) against d ≈ 0.97 for beginners; but uncontrolled pre-post designs show advanced gains of d ≈ 1.19, and the authors state "no clear pattern was found across proficiency levels" [1]. The advanced app subgroup measures g ≈ 0.48 but rests on one study [3]. Use of 1&ndash;4 weeks measures g ≈ 0.07 [3]. Ultimate-attainment research leans the same way: among 41 late learners who passed as native to listeners, none performed within native range under linguistic scrutiny [9], and longitudinal gains cluster in an early window before plateauing [10]. The honest conclusion is not "proven zero" but "unmeasured": the controlled evidence gives no support for buying accent drilling at the advanced level, and no one has properly studied people like you.</p>
+        <div class="chips">
+          <span class="chip support">Supported by: Academic, Skeptic</span>
+          <span class="chip challenge">Challenged by: Practitioner (coached advanced clients keep improving, but on delivery, not sounds)</span>
+        </div>
+      </article>
+
+      <article class="finding">
+        <div class="finding-head">
+          <span class="rank">4</span>
+          <h3>The head-to-head evidence: two small studies, split verdict, neither on people like you</h3>
+          <span class="confidence">5/10</span>
+        </div>
+        <p>García, Nickolai &amp; Jones (2020), n = 76, is the cleanest head-to-head found, and it was run on university learners of Spanish, assigned by lab section (quasi-experimental): ASR practice won on targeted phonemes short-term (with a possible task effect the authors flag), while the instructor-led group had significantly better semester-level comprehensibility, and the authors recommend tandem use while warning against extrapolating to other languages or proficiency levels [6]. A second trial (Sun 2023, 61 intermediate Chinese EFL learners) found ASR-plus-peer-correction beat teacher-led feedback on all measures, but the bundled treatment makes it an unclean comparison [23]. Net: mixed, small, and neither study involves advanced professional speakers of English. The tandem model is the only recommendation both studies and practitioners share [13][22].</p>
+        <div class="chips">
+          <span class="chip support">Supported by: Academic, Practitioner, Historian (pattern match)</span>
+          <span class="chip challenge">Challenged by: none directly; Skeptic notes n = 76</span>
+        </div>
+      </article>
+
+      <article class="finding">
+        <div class="finding-head">
+          <span class="rank">5</span>
+          <h3>Delivery coaching works, modestly, and its measurement is weak</h3>
+          <span class="confidence">6/10</span>
+        </div>
+        <p>Workplace coaching measures &delta; ≈ 0.36 overall (skills &delta; ≈ 0.28) across 17 studies, several explicitly quasi-experimental [7]. The RCT-only meta-analysis finds g ≈ 0.59 (39 samples, n = 2,528), but detects significant publication bias, and self-reported outcomes (g ≈ 0.62) run higher than observed ones (g ≈ 0.29), though the difference is not statistically significant; objective outcomes exist but are rare (8 samples, skewed by a single study) [8]. The economics reinforce the caution: apps are paid for retention, coaches for hours, so no one in the market is compensated for your outcome [14][15][17].</p>
+        <div class="chips">
+          <span class="chip support">Supported by: Academic, Practitioner</span>
+          <span class="chip challenge">Challenged by: Skeptic (self-report), Economist (incentive analysis)</span>
+        </div>
+      </article>
+
+    </section>
+
+    <section class="callout">
+      <h2>The Hidden Connection</h2>
+      <p>All five lenses found the same shape from different directions: this market measures what is easy, not what matters. Apps score scripted segmental accuracy because software can compute it; researchers publish it because it is measurable; venture capital funds the story built on it (Speak at a $1B valuation [14], BoldVoice's $21M Series A on roughly $10M ARR [15]); and education apps retain roughly 2% of users at day 30 [18], which combined with the under-4-weeks g ≈ 0.07 means the modal app subscription mathematically delivers nothing. Meanwhile the outcome that matters, listener-judged spontaneous speech under pressure, is barely measured, is the one thing humans still own, and has never been connected to a business result. The measurable-but-irrelevant is funded; the relevant-but-unmeasured is not.</p>
+    </section>
+
+    <section class="callout">
+      <h2>Key Assumption / The Missing 6th Lens</h2>
+      <p>The missing lens is the listener-outcome auditor. Every lens, and every study, examines the speaker; none measures the receiving end. Whether YOUR spontaneous speech has a comprehensibility gap to the actual investors on your calls is unmeasured, and the assumed harm is shakier than the market admits: the famous accent-lowers-credibility effect is contested (a 2024 conceptual replication and two earlier studies found no effect; one 2021 study did replicate it) [11], while the ~20% wage penalty for distinctive accents is real but comes from regional accents in the German labor market, largely explained by occupational sorting rather than discrimination, and is not a measure of anyone's calls [16]. A listener-scored baseline of a real call could collapse the whole purchase question to zero, or redirect it entirely to delivery. Everything above assumes a gap nobody has verified.</p>
+    </section>
+
+    <section class="contested">
+      <h2>Contested Signal</h2>
+      <ul>
+        <li><b>Advanced app subgroup g ≈ 0.48</b> — rests on a single study; treat as unknown, not as "apps work for advanced learners."</li>
+        <li><b>Advanced instruction subgroup d ≈ &minus;0.01</b> — verified (between-group, k = 7), but within-group advanced measures d ≈ 1.19 and the authors state no clear proficiency pattern exists; the between/within split means "zero for advanced" is the controlled-comparison story only.</li>
+        <li><b>"Accented speech is judged less credible" (Lev-Ari &amp; Keysar 2010)</b> — contested: a 2024 conceptual replication (Lorenzoni et al.) and two earlier studies found no effect, but Boduch-Grabka &amp; Lev-Ari (2021) replicated it; do not build the business case on it either way [11].</li>
+        <li><b>ELSA's "30&ndash;40% improvement in 3 months"</b> — traces to vendor-linked studies on low and intermediate proficiency students, not advanced professionals.</li>
+        <li><b>"App scores plateau at week 6, coached clarity climbs to week 20"</b> — a single working coach's marketing post [22]; plausible, anecdotal, unverifiable.</li>
+        <li><b>Coaching RCT g ≈ 0.59</b> — significant publication bias detected by the authors themselves; self-reported outcomes exceed observed ones [8].</li>
+      </ul>
+    </section>
+
+    <section class="actions">
+      <h2>Actionable Insight — for a fluent bilingual finance executive buying for investor-call English</h2>
+      <ol>
+        <li><b>Baseline before buying anything.</b> Record a 2-minute excerpt of a real investor call and have 3&ndash;5 trusted native-speaker listeners rate comprehensibility blind (or buy one professional evaluation, ~$175). If they score you high, the accent half of this market is irrelevant to you and the question collapses to delivery only.</li>
+        <li><b>Put the human budget on delivery, not drilling.</b> 5&ndash;8 sessions with a delivery-first coach working from your actual call recordings: prosody, structure, answering under pressure. This is the only training with published transfer evidence to spontaneous speech [4], and it is where coaching's strongest (if self-reported) numbers live [7][8].</li>
+        <li><b>Do not pay a human to drill sounds.</b> In controlled comparisons the advanced subgroup measures d ≈ &minus;0.01 [1]. If a specific sound genuinely blocks comprehension, it will show up in the baseline, and an app drills it for 1% of the price.</li>
+        <li><b>App: commit to 3+ months of 10&ndash;15 minutes daily, or skip it.</b> Under 4 weeks measures g ≈ 0.07 [3] and education apps lose ~98% of users by day 30 [18]; a lapsed subscription is the modal outcome and delivers nothing. Use it for coach-assigned targets: the tandem model is what the one head-to-head study recommends [6].</li>
+        <li><b>Audit your own outcome at week 10&ndash;12.</b> Re-record the same task, same listeners, blind. Nobody in this market is paid for your result, so the measurement has to be yours. If the listener scores have not moved, stop paying.</li>
+        <li><b>Ignore price as a quality signal.</b> $15/month vs $150/hour tells you nothing about effect size, and against the stakes of investor communication both are trivial [16]. The binding constraint is evidence, and at your level it is thin everywhere: buy small, measure, and only then scale.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Claim Safety Guide</h2>
+      <div class="safety">
+        <div class="safety-col assert">
+          <header>Safe to assert</header>
+          <ul>
+            <li>Pronunciation instruction works on average (d ≈ 0.8), with evidence dominated by beginners on scripted tasks.</li>
+            <li>Only global/prosody instruction has improved listener-judged spontaneous speech in controlled comparison.</li>
+            <li>App effects require months of sustained use; under 4 weeks measures ≈ 0.</li>
+            <li>The one head-to-head study favored the app short-term on sounds and the human on durable comprehensibility.</li>
+            <li>Coaching effects are real but modest and rest heavily on self-report.</li>
+          </ul>
+        </div>
+        <div class="safety-col caveat">
+          <header>Assert with caveats</header>
+          <ul>
+            <li>Advanced-learner subgroup figures (d ≈ &minus;0.01 between-group only, authors call the pattern unclear; g ≈ 0.48 from one study): directionally informative, too thin to be decisive.</li>
+            <li>~20% accent wage penalty: real finding, but regional accents in the German labor market, mostly occupational sorting, and a working paper.</li>
+            <li>2% day-30 retention: education-category benchmark, not measured on these specific apps.</li>
+            <li>Head-to-head results: two small studies with a split verdict, one in L2 Spanish, one with a bundled treatment.</li>
+          </ul>
+        </div>
+        <div class="safety-col avoid">
+          <header>Avoid</header>
+          <ul>
+            <li>"Apps beat humans" or "humans beat apps" for advanced speakers as settled fact.</li>
+            <li>"Accents make you less credible" as settled fact — the finding is contested (multiple nulls, one successful replication).</li>
+            <li>Vendor improvement percentages (e.g., "30&ndash;40% in 3 months").</li>
+            <li>Quoting effect sizes as percentage gains; d and g are standard-deviation units.</li>
+            <li>Any claim that training changes business outcomes; the chain has never been traced.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="frontier">
+      <div class="kicker">The Frontier Question</div>
+      <p>Does any training measurably move listener-judged comprehensibility of an advanced speaker's spontaneous speech, and does that movement change a single business outcome? No study has ever traced the chain.</p>
+    </section>
+
+    <section class="refs">
+      <h2>References</h2>
+      <ol>
+        <li class="ref-item">Lee, J., Jang, J., &amp; Plonsky, L. (2015). The effectiveness of second language pronunciation instruction: A meta-analysis. Applied Linguistics, 36(3), 345&ndash;366. doi:10.1093/applin/amu040 — <a href="https://academic.oup.com/applij/article-abstract/36/3/345/2422438">academic.oup.com</a><span class="tag confirmed">Confirmed</span></li>
+        <li class="ref-item">Thomson, R. I., &amp; Derwing, T. M. (2015). The effectiveness of L2 pronunciation instruction: A narrative review. Applied Linguistics, 36(3), 326&ndash;344. — <a href="https://academic.oup.com/applij/article-abstract/36/3/326/2422540">academic.oup.com</a><span class="tag partial">Partial</span></li>
+        <li class="ref-item">Ngo, T. T.-N., Chen, H. H.-J., &amp; Lai, K. K.-W. (2024). The effectiveness of automatic speech recognition in ESL/EFL pronunciation: A meta-analysis. ReCALL, 36(1), 4&ndash;21. doi:10.1017/S0958344023000113 — <a href="https://www.cambridge.org/core/journals/recall/article/effectiveness-of-automatic-speech-recognition-in-eslefl-pronunciation-a-metaanalysis/A915444CF252B61D14961D2FE733822D">cambridge.org</a><span class="tag confirmed">Confirmed</span></li>
+        <li class="ref-item">Derwing, T. M., Munro, M. J., &amp; Wiebe, G. (1998). Evidence in favor of a broad framework for pronunciation instruction. Language Learning, 48(3), 393&ndash;410. — <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/0023-8333.00047">onlinelibrary.wiley.com</a><span class="tag confirmed">Confirmed</span></li>
+        <li class="ref-item">Saito, K., &amp; Plonsky, L. (2019). Effects of second language pronunciation teaching revisited: A proposed measurement framework and meta-analysis. Language Learning, 69(3), 652&ndash;708. — <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/lang.12345">onlinelibrary.wiley.com</a><span class="tag confirmed">Confirmed</span></li>
+        <li class="ref-item">García, C., Nickolai, D., &amp; Jones, L. (2020). Traditional versus ASR-based pronunciation instruction: An empirical study. CALICO Journal, 37(3), 213&ndash;232. L2 Spanish learners; quasi-experimental. — <a href="https://eric.ed.gov/?id=EJ1277050">eric.ed.gov</a><span class="tag partial">Partial</span></li>
+        <li class="ref-item">Jones, R. J., Woods, S. A., &amp; Guillaume, Y. R. F. (2016). The effectiveness of workplace coaching: A meta-analysis of learning and performance outcomes from coaching. Journal of Occupational and Organizational Psychology, 89(2), 249&ndash;277. — <a href="https://bpspsychub.onlinelibrary.wiley.com/doi/abs/10.1111/joop.12119">bpspsychub.onlinelibrary.wiley.com</a><span class="tag confirmed">Confirmed</span></li>
+        <li class="ref-item">de Haan, E., &amp; Nilsson, V. O. (2023). What can we know about the effectiveness of coaching? A meta-analysis based only on randomized controlled trials. Academy of Management Learning &amp; Education, 22(4), 641&ndash;661. — <a href="https://journals.aom.org/doi/10.5465/amle.2022.0107">journals.aom.org</a><span class="tag partial">Partial</span></li>
+        <li class="ref-item">Abrahamsson, N., &amp; Hyltenstam, K. (2009). Age of onset and nativelikeness in a second language: Listener perception versus linguistic scrutiny. Language Learning, 59(2), 249&ndash;306. — <a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/j.1467-9922.2009.00507.x">onlinelibrary.wiley.com</a><span class="tag confirmed">Confirmed</span></li>
+        <li class="ref-item">Derwing, T. M., &amp; Munro, M. J. (2020+). Longitudinal L2 pronunciation research and the Window of Maximal Opportunity. Journal of Second Language Pronunciation. — <a href="https://www.jbe-platform.com/content/journals/10.1075/jslp.20038.mun">jbe-platform.com</a><span class="tag unverified">Unverified</span></li>
+        <li class="ref-item">Lorenzoni, A., Faccio, E., &amp; Navarrete, E. (2024). Conceptual replication of Lev-Ari &amp; Keysar (2010): no accent effect on credibility. Journal of Cognition, 7(1). doi:10.5334/joc.353. Note: Boduch-Grabka &amp; Lev-Ari (2021) replicated the original; effect is contested. — <a href="https://journalofcognition.org/articles/10.5334/joc.353">journalofcognition.org</a><span class="tag partial">Partial</span></li>
+        <li class="ref-item">American Journal of Speech-Language Pathology (2021). Accent services and SLP scope of practice. — <a href="https://pubs.asha.org/doi/10.1044/2021_AJSLP-20-00376">pubs.asha.org</a><span class="tag unverified">Unverified</span></li>
+        <li class="ref-item">Almusharraf, A. (2024). CAPT effectiveness meta-analysis (31 studies, 42 effect sizes). Journal of Computer Assisted Learning. — <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/jcal.12974">onlinelibrary.wiley.com</a><span class="tag unverified">Unverified</span></li>
+        <li class="ref-item">Lunden, I. (Dec 10, 2024). OpenAI-backed Speak raises $78M at $1B valuation. TechCrunch. — <a href="https://techcrunch.com/2024/12/10/openai-backed-speak-raises-78m-at-1b-valuation-to-help-users-learn-languages-by-talking-out-loud">techcrunch.com</a><span class="tag confirmed">Confirmed</span></li>
+        <li class="ref-item">PR Newswire (Jan 28, 2026). BoldVoice raises $21M Series A; "recently crossed $10M ARR". — <a href="https://www.prnewswire.com/news-releases/boldvoice-raises-21m-series-a-to-give-a-billion-non-native-english-speakers-their-own-ai-voice-coach-302671777.html">prnewswire.com</a><span class="tag confirmed">Confirmed</span></li>
+        <li class="ref-item">Grogger, J., Steinmayr, A., &amp; Winter, J. (2020). The wage penalty of regional accents. NBER Working Paper 26719 (working paper, German labor market). — <a href="https://www.nber.org/papers/w26719">nber.org</a><span class="tag confirmed">Confirmed</span></li>
+        <li class="ref-item">ICF (2025). Global Coaching Study, executive summary: coaching rates. — <a href="https://wfpma.org/files/news/2025-ICF-Global-Coaching-Study_EXECUTIVE-SUMMARY.pdf">wfpma.org</a><span class="tag unverified">Unverified</span></li>
+        <li class="ref-item">Business of Apps (2026). Education app retention benchmarks: day-30 retention 2%. — <a href="https://www.businessofapps.com/data/education-app-benchmarks/">businessofapps.com</a><span class="tag confirmed">Confirmed</span></li>
+        <li class="ref-item">Reich, J., &amp; Ruipérez-Valiente, J. A. (2019). The MOOC pivot. Science, 363(6423) (completion-rate findings). — <a href="https://www.insidehighered.com/digital-learning/article/2019/01/16/study-offers-data-show-moocs-didnt-achieve-their-goals">insidehighered.com</a><span class="tag unverified">Unverified</span></li>
+        <li class="ref-item">Rosetta Stone Inc.: rise, decline, and 2020 sale to Cambium. — <a href="https://en.wikipedia.org/wiki/Rosetta_Stone_Inc.">en.wikipedia.org</a><span class="tag unverified">Unverified</span></li>
+        <li class="ref-item">Toastmasters International: history since 1924. — <a href="https://www.toastmasters.org/about/history">toastmasters.org</a><span class="tag unverified">Unverified</span></li>
+        <li class="ref-item">Poulton, J. A. (2026). Accent coach vs accent apps (practitioner post). — <a href="https://theaccentcoach.com/accent-coach-vs-accent-apps/">theaccentcoach.com</a><span class="tag unverified">Unverified</span></li>
+        <li class="ref-item">Sun, W. (2023). ASR-supported pronunciation practice with peer correction vs teacher-led feedback: 61 intermediate Chinese EFL learners, 14 weeks. Frontiers in Psychology, 14:1210187. Bundled treatment; not a clean ASR-only contrast. — <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10469312/">pmc.ncbi.nlm.nih.gov</a><span class="tag confirmed">Confirmed</span></li>
+      </ol>
+    </section>
+
+    <footer class="method-footer">
+      <h3>Method &amp; Disclosure</h3>
+      <p>
+        Storm Research pipeline: five parallel expert lenses → contradiction map → synthesis →
+        adversarial self-review → per-citation primary-source verification. The panel is
+        author-built; convergence across lenses is not field consensus. Reliability scores follow
+        the evidence hierarchy: peer-reviewed causal &gt; official data &gt; commissioned survey &gt;
+        analogy &gt; preprint. Generated 2026-08-10.
+      </p>
+    </footer>
+
+  </div>
+</div>
+</body>
+</html>
