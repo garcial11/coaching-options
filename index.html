@@ -18,7 +18,7 @@
     }
   }
   body { background: var(--bg); color: var(--text); font: 15px/1.5 -apple-system, "Segoe UI", Roboto, sans-serif; margin: 0; padding: 24px; }
-  .wrap { max-width: 900px; margin: 0 auto; }
+  .wrap { max-width: 1080px; margin: 0 auto; }
   h1 { font-size: 1.4rem; margin: 0 0 4px; }
   .sub { color: var(--muted); font-size: 0.85rem; margin-bottom: 20px; }
   .verdict { font-size: 1rem; color: var(--text); max-width: 70ch; margin: 12px 0 10px; }
@@ -35,9 +35,30 @@
   .badge { display: inline-block; margin-left: 6px; padding: 1px 8px; border-radius: 999px; background: var(--accent); color: var(--bg); font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap; vertical-align: 1px; }
   a { color: var(--link); text-decoration: none; }
   a:hover { text-decoration: underline; }
-  .price { white-space: nowrap; }
+  .price { min-width: 9em; }
   td.fit { white-space: nowrap; font-weight: 700; }
   td.fit .rk { color: var(--muted); font-weight: 400; }
+  td:last-child { white-space: nowrap; }
+  @media (max-width: 900px) {
+    body { padding: 16px; }
+    table { min-width: 0; }
+    thead { display: none; }
+    table, tbody, tr, td { display: block; width: 100%; box-sizing: border-box; }
+    tr { border-bottom: 1px solid var(--line); padding: 6px 0; }
+    td { border: 0; padding: 2px 12px; }
+    td:last-child { white-space: normal; overflow-wrap: anywhere; }
+    tr.tier { border: 0; padding: 0; margin-top: 16px; }
+    tr.tier td { padding: 8px 12px; }
+    td:first-child { font-weight: 600; }
+    td:nth-child(2)::before { content: "Price"; }
+    td:nth-child(3)::before { content: "Focus"; }
+    td:nth-child(4)::before { content: "Fit"; }
+    td:nth-child(2)::before, td:nth-child(3)::before, td:nth-child(4)::before { margin-right: 6px; color: var(--muted); font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
+    tr.using { background: var(--using-bg); box-shadow: inset 3px 0 0 var(--accent); }
+    tr.pick { background: var(--pick-bg); box-shadow: inset 3px 0 0 var(--pick); }
+    tr.using td, tr.pick td { background: transparent; }
+    tr.using td:first-child, tr.pick td:first-child { box-shadow: none; }
+  }
   .note { margin-top: 20px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 8px; font-size: 0.9rem; color: var(--muted); }
   .note strong { color: var(--text); }
   .stats { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
