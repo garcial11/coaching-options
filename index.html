@@ -8,11 +8,13 @@
   :root {
     --bg: #ffffff; --text: #1a1d21; --muted: #5f6570; --line: #e3e6ea;
     --head-bg: #f4f6f8; --tier-bg: #eef2f6; --link: #0b57d0; --accent: #0f6d5f;
+    --using-bg: #e8f5f1;
   }
   @media (prefers-color-scheme: dark) {
     :root {
       --bg: #16181c; --text: #e8eaed; --muted: #9aa1ab; --line: #33373d;
       --head-bg: #1f2227; --tier-bg: #22262c; --link: #8ab4f8; --accent: #6fc7b4;
+      --using-bg: #1a2b27;
     }
   }
   body { background: var(--bg); color: var(--text); font: 15px/1.5 -apple-system, "Segoe UI", Roboto, sans-serif; margin: 0; padding: 24px; }
@@ -25,6 +27,9 @@
   th { text-align: left; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); background: var(--head-bg); padding: 8px 10px; border-bottom: 2px solid var(--line); }
   td { padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
   tr.tier td { background: var(--tier-bg); font-weight: 600; font-size: 0.85rem; color: var(--accent); }
+  tr.using td { background: var(--using-bg); }
+  tr.using td:first-child { box-shadow: inset 3px 0 0 var(--accent); font-weight: 600; }
+  .badge { display: inline-block; margin-left: 6px; padding: 1px 8px; border-radius: 999px; background: var(--accent); color: var(--bg); font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap; vertical-align: 1px; }
   a { color: var(--link); text-decoration: none; }
   a:hover { text-decoration: underline; }
   .price { white-space: nowrap; }
@@ -49,7 +54,7 @@
 <tbody>
 
 <tr class="tier"><td colspan="4">Tier 1 · Budget · $30–35/session (≈$120–140/mo weekly) — your top picks live here</td></tr>
-<tr><td>Robert Cushman (NY English Teacher)</td><td class="price">$30/session or $360/12 · free diagnostic</td><td>Delivery · LatAm executives</td><td><a target="_blank" rel="noopener" href="https://www.nyenglishteacher.com/en/">nyenglishteacher.com</a></td></tr>
+<tr class="using"><td>Robert Cushman (NY English Teacher) <span class="badge">Using now</span></td><td class="price">$30/session or $360/12 · free diagnostic</td><td>Delivery · LatAm executives</td><td><a target="_blank" rel="noopener" href="https://www.nyenglishteacher.com/en/">nyenglishteacher.com</a></td></tr>
 <tr><td>Kenneth (italki)</td><td class="price">$30/hr · trial $15</td><td>Delivery · finance degrees, fluent Spanish</td><td><a target="_blank" rel="noopener" href="https://www.italki.com/en/teacher/4782409">italki profile</a></td></tr>
 <tr><td>Jacob (italki)</td><td class="price">$33/hr · trial $18</td><td>Delivery · Big-4 trained, finance pros</td><td><a target="_blank" rel="noopener" href="https://www.italki.com/en/teacher/5454801">italki profile</a></td></tr>
 <tr><td>Peter Crawford (italki)</td><td class="price">$35/hr · trial $7</td><td>Accent</td><td><a target="_blank" rel="noopener" href="https://www.italki.com/en/teacher/5606163">italki profile</a></td></tr>
@@ -94,6 +99,7 @@
 <tr><td>Matt Abrahams, "Think Faster, Talk Smarter" ★</td><td class="price">Book $18–29 · podcast free</td><td>Delivery · speaking on the spot (Stanford GSB)</td><td><a target="_blank" rel="noopener" href="https://mattabrahams.com/books/">mattabrahams.com</a></td></tr>
 
 <tr class="tier"><td colspan="4">AI apps · with a fair reading of the evidence (see note below) ★</td></tr>
+<tr class="using"><td>Pronuncia (AI Accent Coach) <span class="badge">Using now</span></td><td class="price">Free download · Pro $9.99/mo or $59.99/yr</td><td>Accent drills · built for Spanish speakers, American accent, 10 min/day; 4.9★ App Store (27 ratings)</td><td><a target="_blank" rel="noopener" href="https://pronuncia.ai">pronuncia.ai</a></td></tr>
 <tr><td>BoldVoice</td><td class="price">$12.50/mo billed annually ($150/yr) · 7-day trial</td><td>Accent drills · Hollywood accent-coach videos, personalized plan; 4.8★ App Store; no independent studies</td><td><a target="_blank" rel="noopener" href="https://www.boldvoice.com">boldvoice.com</a></td></tr>
 <tr><td>ELSA Speak</td><td class="price">$10–25/mo</td><td>Accent drills · the most-studied commercial app; small classroom studies show real gains</td><td><a target="_blank" rel="noopener" href="https://elsaspeak.com">elsaspeak.com</a></td></tr>
 <tr><td>Pronounce AI</td><td class="price">Free plan · ≈$14/mo premium</td><td>Real-call feedback · analyzes your actual Zoom/Meet/Teams calls</td><td><a target="_blank" rel="noopener" href="https://www.getpronounce.com/">getpronounce.com</a></td></tr>
