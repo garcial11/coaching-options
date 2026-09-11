@@ -8,13 +8,13 @@
   :root {
     --bg: #ffffff; --text: #1a1d21; --muted: #5f6570; --line: #e3e6ea;
     --head-bg: #f4f6f8; --tier-bg: #eef2f6; --link: #0b57d0; --accent: #0f6d5f;
-    --using-bg: #e8f5f1;
+    --using-bg: #e8f5f1; --pick: #9a6700; --pick-bg: #fdf5e1;
   }
   @media (prefers-color-scheme: dark) {
     :root {
       --bg: #16181c; --text: #e8eaed; --muted: #9aa1ab; --line: #33373d;
       --head-bg: #1f2227; --tier-bg: #22262c; --link: #8ab4f8; --accent: #6fc7b4;
-      --using-bg: #1a2b27;
+      --using-bg: #1a2b27; --pick: #e3b341; --pick-bg: #2a2418;
     }
   }
   body { background: var(--bg); color: var(--text); font: 15px/1.5 -apple-system, "Segoe UI", Roboto, sans-serif; margin: 0; padding: 24px; }
@@ -23,16 +23,21 @@
   .sub { color: var(--muted); font-size: 0.85rem; margin-bottom: 20px; }
   .verdict { font-size: 1rem; color: var(--text); max-width: 70ch; margin: 12px 0 10px; }
   .scroll { overflow-x: auto; }
-  table { border-collapse: collapse; width: 100%; min-width: 640px; }
+  table { border-collapse: collapse; width: 100%; min-width: 720px; }
   th { text-align: left; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); background: var(--head-bg); padding: 8px 10px; border-bottom: 2px solid var(--line); }
   td { padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
   tr.tier td { background: var(--tier-bg); font-weight: 600; font-size: 0.85rem; color: var(--accent); }
   tr.using td { background: var(--using-bg); }
   tr.using td:first-child { box-shadow: inset 3px 0 0 var(--accent); font-weight: 600; }
+  tr.pick td { background: var(--pick-bg); }
+  tr.pick td:first-child { box-shadow: inset 3px 0 0 var(--pick); font-weight: 600; }
+  .badge.pick { background: var(--pick); }
   .badge { display: inline-block; margin-left: 6px; padding: 1px 8px; border-radius: 999px; background: var(--accent); color: var(--bg); font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; white-space: nowrap; vertical-align: 1px; }
   a { color: var(--link); text-decoration: none; }
   a:hover { text-decoration: underline; }
   .price { white-space: nowrap; }
+  td.fit { white-space: nowrap; font-weight: 700; }
+  td.fit .rk { color: var(--muted); font-weight: 400; }
   .note { margin-top: 20px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 8px; font-size: 0.9rem; color: var(--muted); }
   .note strong { color: var(--text); }
   .stats { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 20px; }
@@ -46,70 +51,70 @@
 <div class="wrap">
 <h1>Pronunciation + Communication Coaching, by Tier</h1>
 <p class="verdict"><strong>Which is better, human 1:1 or an app?</strong> The human is better, and it isn't close. Prosody-focused instruction is the only training in either literature that ever improved how understandable people are in spontaneous speech, and no app trains or even measures it. Full verified evidence: <a target="_blank" rel="noopener" href="storm-report.html">the Storm Research briefing</a>.</p>
-<div class="sub">Focus tags: <b>Delivery</b> = better speaking, Jessica Chen lane · <b>Both</b> = delivery + accent in one engagement · <b>Accent</b> = pronunciation-first. Prices checked Sep 11, 2026.</div>
+<div class="sub">Focus tags: <b>Delivery</b> = better speaking, Jessica Chen lane · <b>Both</b> = delivery + accent in one engagement · <b>Accent</b> = pronunciation-first. <br><b>Fit</b> = score out of 10 and overall rank, for a Spanish-speaking finance executive: accent expertise, Spanish-specific know-how, executive/finance relevance, 1:1 format, value. Highlighted rows: <b>Using now</b> = current setup · <b>Top pick</b> = fit 9.0 or higher. Prices checked Sep 11, 2026.</div>
 
 <div class="scroll">
 <table>
-<thead><tr><th>Service</th><th>Price</th><th>Focus</th><th>Link</th></tr></thead>
+<thead><tr><th>Service</th><th>Price</th><th>Focus</th><th>Fit</th><th>Link</th></tr></thead>
 <tbody>
 
-<tr class="tier"><td colspan="4">Tier 1 · Budget · $30–35/session (≈$120–140/mo weekly) — your top picks live here</td></tr>
-<tr class="using"><td>Robert Cushman (NY English Teacher) <span class="badge">Using now</span></td><td class="price">$30/session or $360/12 · free diagnostic</td><td>Delivery · LatAm executives</td><td><a target="_blank" rel="noopener" href="https://www.nyenglishteacher.com/en/">nyenglishteacher.com</a></td></tr>
-<tr><td>Kenneth (italki)</td><td class="price">$30/hr · trial $15</td><td>Delivery · finance degrees, fluent Spanish</td><td><a target="_blank" rel="noopener" href="https://www.italki.com/en/teacher/4782409">italki profile</a></td></tr>
-<tr><td>Jacob (italki)</td><td class="price">$33/hr · trial $18</td><td>Delivery · Big-4 trained, finance pros</td><td><a target="_blank" rel="noopener" href="https://www.italki.com/en/teacher/5454801">italki profile</a></td></tr>
-<tr><td>Peter Crawford (italki)</td><td class="price">$35/hr · trial $7</td><td>Accent</td><td><a target="_blank" rel="noopener" href="https://www.italki.com/en/teacher/5606163">italki profile</a></td></tr>
+<tr class="tier"><td colspan="5">Tier 1 · Budget · $30–35/session (≈$120–140/mo weekly)</td></tr>
+<tr class="using"><td>Robert Cushman (NY English Teacher) <span class="badge">Using now</span></td><td class="price">$30/session or $360/12 · free diagnostic</td><td>Delivery · LatAm executives</td><td class="fit">8.5<span class="rk"> · #7</span></td><td><a target="_blank" rel="noopener" href="https://www.nyenglishteacher.com/en/">nyenglishteacher.com</a></td></tr>
+<tr><td>Kenneth (italki)</td><td class="price">$30/hr · trial $15</td><td>Delivery · finance degrees, fluent Spanish</td><td class="fit">8.2<span class="rk"> · #10</span></td><td><a target="_blank" rel="noopener" href="https://www.italki.com/en/teacher/4782409">italki profile</a></td></tr>
+<tr><td>Jacob (italki)</td><td class="price">$33/hr · trial $18</td><td>Delivery · Big-4 trained, finance pros</td><td class="fit">8.1<span class="rk"> · #11</span></td><td><a target="_blank" rel="noopener" href="https://www.italki.com/en/teacher/5454801">italki profile</a></td></tr>
+<tr><td>Peter Crawford (italki)</td><td class="price">$35/hr · trial $7</td><td>Accent</td><td class="fit">6.6<span class="rk"> · #25</span></td><td><a target="_blank" rel="noopener" href="https://www.italki.com/en/teacher/5606163">italki profile</a></td></tr>
 
-<tr class="tier"><td colspan="4">Tier 2 · Mid · $40–60/session (≈$160–240/mo)</td></tr>
-<tr><td>Marie (italki)</td><td class="price">$40 (leaders course $80)</td><td>Both · business English + pronunciation</td><td><a target="_blank" rel="noopener" href="https://www.italki.com/en/teacher/2925207">italki profile</a></td></tr>
-<tr><td>Evangeline L. (italki)</td><td class="price">$42</td><td>Delivery · fluent Spanish, Guatemala TZ</td><td><a target="_blank" rel="noopener" href="https://www.italki.com/en/teacher/5446163">italki profile</a></td></tr>
-<tr><td>Lucas Weaver (Fluency Unleashed)</td><td class="price">$45/50-min · free intro call</td><td>Both · American, fluent Spanish + Portuguese, ex-fintech; has a finance-professionals track (board, Q&amp;A, defending numbers) · #3 accent pick, 9.3/10</td><td><a target="_blank" rel="noopener" href="https://fluencyunleashed.com/services/pronunciation">fluencyunleashed.com</a></td></tr>
-<tr><td>Steve (italki)</td><td class="price">$50–59 · trial $15</td><td>Delivery · strongest pure delivery coach found</td><td><a target="_blank" rel="noopener" href="https://www.italki.com/en/teacher/3727116">italki profile</a></td></tr>
-<tr><td>Adam H. (Preply)</td><td class="price">$50/50-min</td><td>Delivery · executive-communication-first</td><td><a target="_blank" rel="noopener" href="https://preply.com/en/tutor/6039704">Preply profile</a></td></tr>
-<tr><td>Suzie S. (Wyzant, NY)</td><td class="price">$60/hr negotiable</td><td>Delivery · presentations, communication apprehension</td><td><a target="_blank" rel="noopener" href="https://www.wyzant.com/Tutors/NY/New_York/7696779/">Wyzant profile</a></td></tr>
+<tr class="tier"><td colspan="5">Tier 2 · Mid · $40–60/session (≈$160–240/mo)</td></tr>
+<tr><td>Marie (italki)</td><td class="price">$40 (leaders course $80)</td><td>Both · business English + pronunciation</td><td class="fit">7.1<span class="rk"> · #20</span></td><td><a target="_blank" rel="noopener" href="https://www.italki.com/en/teacher/2925207">italki profile</a></td></tr>
+<tr><td>Evangeline L. (italki)</td><td class="price">$42</td><td>Delivery · fluent Spanish, Guatemala TZ</td><td class="fit">7.0<span class="rk"> · #21</span></td><td><a target="_blank" rel="noopener" href="https://www.italki.com/en/teacher/5446163">italki profile</a></td></tr>
+<tr class="pick"><td>Lucas Weaver (Fluency Unleashed) <span class="badge pick">Top pick</span></td><td class="price">$45/50-min · free intro call</td><td>Both · American, fluent Spanish + Portuguese, ex-fintech; has a finance-professionals track (board, Q&amp;A, defending numbers)</td><td class="fit">9.3<span class="rk"> · #3</span></td><td><a target="_blank" rel="noopener" href="https://fluencyunleashed.com/services/pronunciation">fluencyunleashed.com</a></td></tr>
+<tr><td>Steve (italki)</td><td class="price">$50–59 · trial $15</td><td>Delivery · strongest pure delivery coach found</td><td class="fit">7.8<span class="rk"> · #14</span></td><td><a target="_blank" rel="noopener" href="https://www.italki.com/en/teacher/3727116">italki profile</a></td></tr>
+<tr><td>Adam H. (Preply)</td><td class="price">$50/50-min</td><td>Delivery · executive-communication-first</td><td class="fit">7.4<span class="rk"> · #17</span></td><td><a target="_blank" rel="noopener" href="https://preply.com/en/tutor/6039704">Preply profile</a></td></tr>
+<tr><td>Suzie S. (Wyzant, NY)</td><td class="price">$60/hr negotiable</td><td>Delivery · presentations, communication apprehension</td><td class="fit">6.2<span class="rk"> · #29</span></td><td><a target="_blank" rel="noopener" href="https://www.wyzant.com/Tutors/NY/New_York/7696779/">Wyzant profile</a></td></tr>
 
-<tr class="tier"><td colspan="4">Tier 3 · Upper marketplace · $70–95/session (≈$280–380/mo)</td></tr>
-<tr><td>Judy W. (Wyzant, Chicago)</td><td class="price">$70/hr</td><td>Both · MA ESL</td><td><a target="_blank" rel="noopener" href="https://www.wyzant.com/Tutors/IL/Chicago/7652667/">Wyzant profile</a></td></tr>
-<tr><td>Kristine (italki)</td><td class="price">$89–91 · trial $41 · 10-pack $799 (≈$80 each)</td><td>Both · accent course + Toastmasters delivery; likely the same coach as Kristine H. on Wyzant (both Salt Lake City)</td><td><a target="_blank" rel="noopener" href="https://www.italki.com/en/teacher/5524470">italki profile</a></td></tr>
-<tr><td>Kristine H. (Wyzant, Salt Lake City)</td><td class="price">$89/hr</td><td>Both · accent + certified public speaking</td><td><a target="_blank" rel="noopener" href="https://www.wyzant.com/Tutors/UT/Salt_Lake_City/9371443/">Wyzant profile</a></td></tr>
+<tr class="tier"><td colspan="5">Tier 3 · Upper marketplace · $70–95/session (≈$280–380/mo)</td></tr>
+<tr><td>Judy W. (Wyzant, Chicago)</td><td class="price">$70/hr</td><td>Both · MA ESL</td><td class="fit">6.8<span class="rk"> · #23</span></td><td><a target="_blank" rel="noopener" href="https://www.wyzant.com/Tutors/IL/Chicago/7652667/">Wyzant profile</a></td></tr>
+<tr><td>Kristine (italki)</td><td class="price">$89–91 · trial $41 · 10-pack $799 (≈$80 each)</td><td>Both · accent course + Toastmasters delivery; likely the same coach as Kristine H. on Wyzant (both Salt Lake City)</td><td class="fit">8.6<span class="rk"> · #6</span></td><td><a target="_blank" rel="noopener" href="https://www.italki.com/en/teacher/5524470">italki profile</a></td></tr>
+<tr><td>Kristine H. (Wyzant, Salt Lake City)</td><td class="price">$89/hr</td><td>Both · accent + certified public speaking</td><td class="fit">8.4<span class="rk"> · #8</span></td><td><a target="_blank" rel="noopener" href="https://www.wyzant.com/Tutors/UT/Salt_Lake_City/9371443/">Wyzant profile</a></td></tr>
 
-<tr class="tier"><td colspan="4">Tier 4 · Professional firms · $100–250/session (≈$400–1,000/mo)</td></tr>
-<tr><td>Coach Alex Alfonso (Buenos Aires)</td><td class="price">$100/hr</td><td>Both · executive English, coaching in Spanish</td><td><a target="_blank" rel="noopener" href="https://coachalexalfonso.com/programas-de-ingles-ejecutivo/">coachalexalfonso.com</a></td></tr>
-<tr><td>Jelisaveta C. (Preply)</td><td class="price">$100/50-min (was $50 in Aug)</td><td>Accent · covers presentations</td><td><a target="_blank" rel="noopener" href="https://preply.com/en/tutor/3873180">Preply profile</a></td></tr>
-<tr><td>Amanda Matloff (City Accent Coaching)</td><td class="price">$135/session · $135 evaluation · free 15-min consult</td><td>Accent · SLP (M.S., CCC-SLP), built for executives: board meetings, investor presentations · #2 accent pick, 9.6/10</td><td><a target="_blank" rel="noopener" href="https://www.cityaccentcoaching.com/">cityaccentcoaching.com</a></td></tr>
-<tr><td>English That Inspires (Isabelle, NL)</td><td class="price">≈€121/session</td><td>Both · investor-pitch focused, Colombian client testimonial</td><td><a target="_blank" rel="noopener" href="https://www.englishthatinspires.com/pricing">englishthatinspires.com</a></td></tr>
-<tr><td>Connected Speech Pathology</td><td class="price">$175 evaluation · $150/hr</td><td>Both · SLP-led, verified top pick</td><td><a target="_blank" rel="noopener" href="https://connectedspeechpathology.com/our-rates">connectedspeechpathology.com</a></td></tr>
-<tr><td>Chevy Carson (English with Chevy)</td><td class="price">$1,250 / 8 weekly 1:1 sessions (≈$156 each)</td><td>Accent · Spanish speakers only; voice-message feedback between sessions, results guarantee; no clinical credentials · #4 accent pick, 8.8/10</td><td><a target="_blank" rel="noopener" href="https://englishwithchevy.com/">englishwithchevy.com</a></td></tr>
-<tr><td>New York Speech Coaching</td><td class="price">$150–250 usable tiers (to $450)</td><td>Both · combine-in-one-lesson official</td><td><a target="_blank" rel="noopener" href="https://newyorkspeechcoaching.com/rates">newyorkspeechcoaching.com</a></td></tr>
-<tr><td>San Diego Voice and Accent</td><td class="price">$250/hr</td><td>Both · accent-first skew</td><td><a target="_blank" rel="noopener" href="https://www.sandiegovoiceandaccent.com/private-training/pricing">sandiegovoiceandaccent.com</a></td></tr>
+<tr class="tier"><td colspan="5">Tier 4 · Professional firms · $100–250/session (≈$400–1,000/mo)</td></tr>
+<tr><td>Coach Alex Alfonso (Buenos Aires)</td><td class="price">$100/hr</td><td>Both · executive English, coaching in Spanish</td><td class="fit">8.0<span class="rk"> · #12</span></td><td><a target="_blank" rel="noopener" href="https://coachalexalfonso.com/programas-de-ingles-ejecutivo/">coachalexalfonso.com</a></td></tr>
+<tr><td>Jelisaveta C. (Preply)</td><td class="price">$100/50-min (was $50 in Aug)</td><td>Accent · covers presentations</td><td class="fit">5.6<span class="rk"> · #35</span></td><td><a target="_blank" rel="noopener" href="https://preply.com/en/tutor/3873180">Preply profile</a></td></tr>
+<tr class="pick"><td>Amanda Matloff (City Accent Coaching) <span class="badge pick">Top pick</span></td><td class="price">$135/session · $135 evaluation · free 15-min consult</td><td>Accent · SLP (M.S., CCC-SLP), built for executives: board meetings, investor presentations</td><td class="fit">9.6<span class="rk"> · #2</span></td><td><a target="_blank" rel="noopener" href="https://www.cityaccentcoaching.com/">cityaccentcoaching.com</a></td></tr>
+<tr><td>English That Inspires (Isabelle, NL)</td><td class="price">≈€121/session</td><td>Both · investor-pitch focused, Colombian client testimonial</td><td class="fit">8.3<span class="rk"> · #9</span></td><td><a target="_blank" rel="noopener" href="https://www.englishthatinspires.com/pricing">englishthatinspires.com</a></td></tr>
+<tr class="pick"><td>Connected Speech Pathology <span class="badge pick">Top pick</span></td><td class="price">$175 evaluation · $150/hr</td><td>Both · SLP-led, verified top pick</td><td class="fit">9.0<span class="rk"> · #4</span></td><td><a target="_blank" rel="noopener" href="https://connectedspeechpathology.com/our-rates">connectedspeechpathology.com</a></td></tr>
+<tr><td>Chevy Carson (English with Chevy)</td><td class="price">$1,250 / 8 weekly 1:1 sessions (≈$156 each)</td><td>Accent · Spanish speakers only; voice-message feedback between sessions, results guarantee; no clinical credentials</td><td class="fit">8.8<span class="rk"> · #5</span></td><td><a target="_blank" rel="noopener" href="https://englishwithchevy.com/">englishwithchevy.com</a></td></tr>
+<tr><td>New York Speech Coaching</td><td class="price">$150–250 usable tiers (to $450)</td><td>Both · combine-in-one-lesson official</td><td class="fit">7.9<span class="rk"> · #13</span></td><td><a target="_blank" rel="noopener" href="https://newyorkspeechcoaching.com/rates">newyorkspeechcoaching.com</a></td></tr>
+<tr><td>San Diego Voice and Accent</td><td class="price">$250/hr</td><td>Both · accent-first skew</td><td class="fit">6.7<span class="rk"> · #24</span></td><td><a target="_blank" rel="noopener" href="https://www.sandiegovoiceandaccent.com/private-training/pricing">sandiegovoiceandaccent.com</a></td></tr>
 
-<tr class="tier"><td colspan="4">Tier 5 · Quote-only premium · benchmarks $297–500/hr, packages $5k–60k</td></tr>
-<tr><td>Tracey Ingram-Lee, Au.D. (Precise American English Academy)</td><td class="price">Consultation required · 7- or 13-week programs</td><td>Accent · audiologist, ASHA-certified, ex-Director of Chicago's Institute of Accent Modification; programs built for Spanish speakers · #1 accent pick, 9.7/10</td><td><a target="_blank" rel="noopener" href="https://www.preciseamericanenglishacademy.com/">preciseamericanenglishacademy.com</a></td></tr>
-<tr><td>Jessica Chen, private coaching</td><td class="price">Application-only, unpublished</td><td>Delivery · Smart, Not Loud</td><td><a target="_blank" rel="noopener" href="https://www.soulcastmedia.com">soulcastmedia.com</a></td></tr>
-<tr><td>Tannia Suárez</td><td class="price">Book-a-call, unpublished</td><td>Delivery · storytelling</td><td><a target="_blank" rel="noopener" href="https://www.tanniasuarez.com/leadership">tanniasuarez.com</a></td></tr>
-<tr><td>SpeechScience</td><td class="price">Unpublished</td><td>Both · SLP firm</td><td><a target="_blank" rel="noopener" href="https://speechscience.com/accent-modification/">speechscience.com</a></td></tr>
-<tr><td>Corporate Speech Solutions</td><td class="price">Unpublished</td><td>Both · SLP firm</td><td><a target="_blank" rel="noopener" href="https://corporatespeechsolutions.com/">corporatespeechsolutions.com</a></td></tr>
+<tr class="tier"><td colspan="5">Tier 5 · Quote-only premium · benchmarks $297–500/hr, packages $5k–60k</td></tr>
+<tr class="pick"><td>Tracey Ingram-Lee, Au.D. (Precise American English Academy) <span class="badge pick">Top pick</span></td><td class="price">Consultation required · 7- or 13-week programs</td><td>Accent · audiologist, ASHA-certified, ex-Director of Chicago's Institute of Accent Modification; programs built for Spanish speakers</td><td class="fit">9.7<span class="rk"> · #1</span></td><td><a target="_blank" rel="noopener" href="https://www.preciseamericanenglishacademy.com/">preciseamericanenglishacademy.com</a></td></tr>
+<tr><td>Jessica Chen, private coaching</td><td class="price">Application-only, unpublished</td><td>Delivery · Smart, Not Loud</td><td class="fit">7.6<span class="rk"> · #15</span></td><td><a target="_blank" rel="noopener" href="https://www.soulcastmedia.com">soulcastmedia.com</a></td></tr>
+<tr><td>Tannia Suárez</td><td class="price">Book-a-call, unpublished</td><td>Delivery · storytelling</td><td class="fit">6.5<span class="rk"> · #26</span></td><td><a target="_blank" rel="noopener" href="https://www.tanniasuarez.com/leadership">tanniasuarez.com</a></td></tr>
+<tr><td>SpeechScience</td><td class="price">Unpublished</td><td>Both · SLP firm</td><td class="fit">7.3<span class="rk"> · #18</span></td><td><a target="_blank" rel="noopener" href="https://speechscience.com/accent-modification/">speechscience.com</a></td></tr>
+<tr><td>Corporate Speech Solutions</td><td class="price">Unpublished</td><td>Both · SLP firm</td><td class="fit">7.2<span class="rk"> · #19</span></td><td><a target="_blank" rel="noopener" href="https://corporatespeechsolutions.com/">corporatespeechsolutions.com</a></td></tr>
 
-<tr class="tier"><td colspan="4">Courses &amp; cohorts · one-time buys ★</td></tr>
-<tr><td>Wes Kao, Executive Communication &amp; Influence (Maven)</td><td class="price">$850 one-time · live cohort + lifetime recordings</td><td>Delivery · headline-first structure, managing up; closest single course to Chen + pyramid</td><td><a target="_blank" rel="noopener" href="https://maven.com/wes-kao/executive-communication-influence">maven.com/wes-kao</a></td></tr>
-<tr><td>Ultraspeaking, Fundamentals L1</td><td class="price">≈$1,995 or 12 × $166 · 30-day live cohort</td><td>Delivery · spontaneous speaking, Q&amp;A under pressure</td><td><a target="_blank" rel="noopener" href="https://ultraspeaking.com/fundamentals-l1/">ultraspeaking.com</a></td></tr>
-<tr><td>ALTA accent reduction training ★</td><td class="price">$315 one-time · 91 lessons + 3 hrs 1:1 coaching (Lite $260, no coach)</td><td>Accent · corporate language company, assessment-based</td><td><a target="_blank" rel="noopener" href="https://learn.altalang.com/accent-reduction-training/">learn.altalang.com</a></td></tr>
-<tr><td>Duarte (Captivate, Presentation Principles)</td><td class="price">Quote via sales · on-demand cheaper</td><td>Delivery · corporate presentation-training standard</td><td><a target="_blank" rel="noopener" href="https://www.duarte.com/training/">duarte.com/training</a></td></tr>
+<tr class="tier"><td colspan="5">Courses &amp; cohorts · one-time buys ★</td></tr>
+<tr><td>Wes Kao, Executive Communication &amp; Influence (Maven)</td><td class="price">$850 one-time · live cohort + lifetime recordings</td><td>Delivery · headline-first structure, managing up; closest single course to Chen + pyramid</td><td class="fit">7.5<span class="rk"> · #16</span></td><td><a target="_blank" rel="noopener" href="https://maven.com/wes-kao/executive-communication-influence">maven.com/wes-kao</a></td></tr>
+<tr><td>Ultraspeaking, Fundamentals L1</td><td class="price">≈$1,995 or 12 × $166 · 30-day live cohort</td><td>Delivery · spontaneous speaking, Q&amp;A under pressure</td><td class="fit">6.3<span class="rk"> · #28</span></td><td><a target="_blank" rel="noopener" href="https://ultraspeaking.com/fundamentals-l1/">ultraspeaking.com</a></td></tr>
+<tr><td>ALTA accent reduction training ★</td><td class="price">$315 one-time · 91 lessons + 3 hrs 1:1 coaching (Lite $260, no coach)</td><td>Accent · corporate language company, assessment-based</td><td class="fit">6.4<span class="rk"> · #27</span></td><td><a target="_blank" rel="noopener" href="https://learn.altalang.com/accent-reduction-training/">learn.altalang.com</a></td></tr>
+<tr><td>Duarte (Captivate, Presentation Principles)</td><td class="price">Quote via sales · on-demand cheaper</td><td>Delivery · corporate presentation-training standard</td><td class="fit">5.8<span class="rk"> · #33</span></td><td><a target="_blank" rel="noopener" href="https://www.duarte.com/training/">duarte.com/training</a></td></tr>
 
-<tr class="tier"><td colspan="4">Complements · group or self-serve, not 1:1</td></tr>
-<tr><td>Soulcast Media membership (Jessica Chen)</td><td class="price">≈$60/mo</td><td>Delivery · group workshops</td><td><a target="_blank" rel="noopener" href="https://www.soulcastmedia.com">soulcastmedia.com</a></td></tr>
-<tr><td>Rachel's English Academy ★</td><td class="price">$14/mo listed · $5 first-month promos</td><td>Accent · 25-course self-paced American accent curriculum</td><td><a target="_blank" rel="noopener" href="https://www.rachelsenglishacademy.com/bundles/online-english-courses">rachelsenglishacademy.com</a></td></tr>
-<tr><td>Hadar Shemesh, "New Sound" ★</td><td class="price">Enrollment windows · price unpublished between cohorts</td><td>Accent · community-based practice program</td><td><a target="_blank" rel="noopener" href="https://hadarshemesh.com/training/">hadarshemesh.com</a></td></tr>
-<tr><td>MyAccentWay ★</td><td class="price">$200/mo app + monthly coaching · or $160/session</td><td>Accent · AI drills with a human check-in</td><td><a target="_blank" rel="noopener" href="https://myaccentway.com/">myaccentway.com</a></td></tr>
-<tr><td>Matt Abrahams, "Think Faster, Talk Smarter" ★</td><td class="price">Book $18–29 · podcast free</td><td>Delivery · speaking on the spot (Stanford GSB)</td><td><a target="_blank" rel="noopener" href="https://mattabrahams.com/books/">mattabrahams.com</a></td></tr>
+<tr class="tier"><td colspan="5">Complements · group or self-serve, not 1:1</td></tr>
+<tr><td>Soulcast Media membership (Jessica Chen)</td><td class="price">≈$60/mo</td><td>Delivery · group workshops</td><td class="fit">6.1<span class="rk"> · #30</span></td><td><a target="_blank" rel="noopener" href="https://www.soulcastmedia.com">soulcastmedia.com</a></td></tr>
+<tr><td>Rachel's English Academy ★</td><td class="price">$14/mo listed · $5 first-month promos</td><td>Accent · 25-course self-paced American accent curriculum</td><td class="fit">5.7<span class="rk"> · #34</span></td><td><a target="_blank" rel="noopener" href="https://www.rachelsenglishacademy.com/bundles/online-english-courses">rachelsenglishacademy.com</a></td></tr>
+<tr><td>Hadar Shemesh, "New Sound" ★</td><td class="price">Enrollment windows · price unpublished between cohorts</td><td>Accent · community-based practice program</td><td class="fit">5.5<span class="rk"> · #36</span></td><td><a target="_blank" rel="noopener" href="https://hadarshemesh.com/training/">hadarshemesh.com</a></td></tr>
+<tr><td>MyAccentWay ★</td><td class="price">$200/mo app + monthly coaching · or $160/session</td><td>Accent · AI drills with a human check-in</td><td class="fit">5.1<span class="rk"> · #40</span></td><td><a target="_blank" rel="noopener" href="https://myaccentway.com/">myaccentway.com</a></td></tr>
+<tr><td>Matt Abrahams, "Think Faster, Talk Smarter" ★</td><td class="price">Book $18–29 · podcast free</td><td>Delivery · speaking on the spot (Stanford GSB)</td><td class="fit">5.3<span class="rk"> · #38</span></td><td><a target="_blank" rel="noopener" href="https://mattabrahams.com/books/">mattabrahams.com</a></td></tr>
 
-<tr class="tier"><td colspan="4">AI apps · with a fair reading of the evidence (see note below) ★</td></tr>
-<tr class="using"><td>Pronuncia (AI Accent Coach) <span class="badge">Using now</span></td><td class="price">Free download · Pro $9.99/mo or $59.99/yr</td><td>Accent drills · built for Spanish speakers, American accent, 10 min/day; 4.9★ App Store (27 ratings)</td><td><a target="_blank" rel="noopener" href="https://pronuncia.ai">pronuncia.ai</a></td></tr>
-<tr><td>BoldVoice</td><td class="price">$12.50/mo billed annually ($150/yr) · 7-day trial</td><td>Accent drills · Hollywood accent-coach videos, personalized plan; 4.8★ App Store; no independent studies</td><td><a target="_blank" rel="noopener" href="https://www.boldvoice.com">boldvoice.com</a></td></tr>
-<tr><td>ELSA Speak</td><td class="price">$99.99/yr (≈$8/mo) or $19.99/mo</td><td>Accent drills · the most-studied commercial app; small classroom studies show real gains</td><td><a target="_blank" rel="noopener" href="https://elsaspeak.com">elsaspeak.com</a></td></tr>
-<tr><td>Pronounce AI</td><td class="price">Free plan · ≈$14/mo premium</td><td>Real-call feedback · analyzes your actual Zoom/Meet/Teams calls</td><td><a target="_blank" rel="noopener" href="https://www.getpronounce.com/">getpronounce.com</a></td></tr>
-<tr><td>Yoodli</td><td class="price">Free plan · $8–20/mo</td><td>Delivery · filler words, pacing, conciseness, roleplays; adopted by Toastmasters</td><td><a target="_blank" rel="noopener" href="https://yoodli.ai">yoodli.ai</a></td></tr>
-<tr><td>ChatterFox</td><td class="price">$47/mo · 7-day trial</td><td>Accent · AI drills + certified human coach reviews your recordings</td><td><a target="_blank" rel="noopener" href="https://chatterfox.com/">chatterfox.com</a></td></tr>
-<tr><td>Ultraspeaking practice app</td><td class="price">$99/mo</td><td>Delivery · daily game-based speaking reps</td><td><a target="_blank" rel="noopener" href="https://ultraspeaking.com/app/">ultraspeaking.com/app</a></td></tr>
+<tr class="tier"><td colspan="5">AI apps · with a fair reading of the evidence (see note below) ★</td></tr>
+<tr class="using"><td>Pronuncia (AI Accent Coach) <span class="badge">Using now</span></td><td class="price">Free download · Pro $9.99/mo or $59.99/yr</td><td>Accent drills · built for Spanish speakers, American accent, 10 min/day; 4.9★ App Store (27 ratings)</td><td class="fit">6.9<span class="rk"> · #22</span></td><td><a target="_blank" rel="noopener" href="https://pronuncia.ai">pronuncia.ai</a></td></tr>
+<tr><td>BoldVoice</td><td class="price">$12.50/mo billed annually ($150/yr) · 7-day trial</td><td>Accent drills · Hollywood accent-coach videos, personalized plan; 4.8★ App Store; no independent studies</td><td class="fit">6.0<span class="rk"> · #31</span></td><td><a target="_blank" rel="noopener" href="https://www.boldvoice.com">boldvoice.com</a></td></tr>
+<tr><td>ELSA Speak</td><td class="price">$99.99/yr (≈$8/mo) or $19.99/mo</td><td>Accent drills · the most-studied commercial app; small classroom studies show real gains</td><td class="fit">5.4<span class="rk"> · #37</span></td><td><a target="_blank" rel="noopener" href="https://elsaspeak.com">elsaspeak.com</a></td></tr>
+<tr><td>Pronounce AI</td><td class="price">Free plan · ≈$14/mo premium</td><td>Real-call feedback · analyzes your actual Zoom/Meet/Teams calls</td><td class="fit">5.9<span class="rk"> · #32</span></td><td><a target="_blank" rel="noopener" href="https://www.getpronounce.com/">getpronounce.com</a></td></tr>
+<tr><td>Yoodli</td><td class="price">Free plan · $8–20/mo</td><td>Delivery · filler words, pacing, conciseness, roleplays; adopted by Toastmasters</td><td class="fit">5.0<span class="rk"> · #41</span></td><td><a target="_blank" rel="noopener" href="https://yoodli.ai">yoodli.ai</a></td></tr>
+<tr><td>ChatterFox</td><td class="price">$47/mo · 7-day trial</td><td>Accent · AI drills + certified human coach reviews your recordings</td><td class="fit">5.2<span class="rk"> · #39</span></td><td><a target="_blank" rel="noopener" href="https://chatterfox.com/">chatterfox.com</a></td></tr>
+<tr><td>Ultraspeaking practice app</td><td class="price">$99/mo</td><td>Delivery · daily game-based speaking reps</td><td class="fit">4.8<span class="rk"> · #42</span></td><td><a target="_blank" rel="noopener" href="https://ultraspeaking.com/app/">ultraspeaking.com/app</a></td></tr>
 
 </tbody>
 </table>
